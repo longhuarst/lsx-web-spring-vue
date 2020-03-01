@@ -18,7 +18,9 @@ Vue.prototype.$axios = axios;
 import common from './components/common.vue';
 Vue.prototype.$common = common;
 
-
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 
 
 

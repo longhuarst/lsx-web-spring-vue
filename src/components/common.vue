@@ -97,6 +97,9 @@ function logout(){
     this.$store.state.logined = null;
 }
 
+
+
+
 export default{
     // user,
     setUsername,
