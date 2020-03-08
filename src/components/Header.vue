@@ -7,24 +7,32 @@
         <a-menu
           theme="dark"
           mode="horizontal"
+          :selectedKeys="keys"
           :defaultSelectedKeys="['1']"
           :style="{ lineHeight: '64px' }"
+        
         >
         
-          <a-menu-item key="1" style="float: left;" ref="home"><router-link to="/">主页</router-link></a-menu-item>
-          <a-menu-item key="2" style="float: left;" ref="userCenter"><router-link to="/userCenter">用户中心</router-link></a-menu-item>
-          <a-menu-item key="3" style="float: left;" ref="about"><router-link to="/about">关于</router-link></a-menu-item>
+          <a-menu-item key="1" style="float: left;" ref="home" @click="click($event)"><router-link to="/">主页</router-link></a-menu-item>
+          <a-menu-item key="2" style="float: left;" ref="userCenter" @click="click($event)"><router-link to="/userCenter">用户中心</router-link></a-menu-item>
+          <a-menu-item key="3" style="float: left;" ref="about" @click="click($event)"><router-link to="/about">关于</router-link></a-menu-item>
           <!-- <a-menu-item key="4" style="float: right;" > -->
 
 
-              
+          {{this.key}}
           <!-- </a-menu-item> -->
           
           {{this.$store.state.logined}}
 
           <a-row class="row" type="flex" justify="space-around" align="middle" style="height:60px" >
             <HeadUserLogin v-if="!this.$store.state.logined" class="HeadUserLogin" />
-            <HeadUserCenter v-if="this.$store.state.logined"/>
+            <!-- <HeadUserCenter v-if="this.$store.state.logined"/> -->
+            <div v-if="this.$store.state.logined" @click="profilePicClick($event)">
+                <a-badge :count="99"><a-avatar shape="square" src="http://localhost:18880/fastdfs/group1/M00/00/00/CtM3Cl5j5-SAJT9eAACJ3JtEyNk345.jpg">
+                    <button @click="profilePicClick($event)"></button>
+                </a-avatar></a-badge>
+
+            </div>
           </a-row>
         </a-menu>
       </a-layout-header>
@@ -45,13 +53,46 @@ import HeadUserCenter from '@/components/HeadUserCenter.vue'
 export default {
     components:{
         HeadUserLogin,
-        HeadUserCenter,
+        // HeadUserCenter,
     },
     watch:{
       
     },
-    created:{
+    created(){
         // console.log(this.refs)
+        // window.console.log()
+        this.$router.push('/')
+    },
+    data(){
+      return{
+        keys: ['1']
+      }
+    },
+    methods : {
+      click(key){
+        console.log("clicked!")
+        // console.log(item)
+        console.log(key)
+        // console.log(keyPath)
+        console.log(this.key)
+        // this.key =3;
+
+
+        this.keys = key.keyPath;
+
+        console.log(this.key)
+      },
+      profilePicClick(event){
+        console.log(event)
+
+        this.keys = ['2']
+
+
+        this.$router.push('/userCenter')
+      },
+      created(){
+        console.log("created")
+      }
     }
 
 };

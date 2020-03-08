@@ -377,7 +377,7 @@ let date = [];
               }
           }
 
-        this.$axios.post("http://localhost:18887/device/deleteDeviceByUuid", data_, config)
+        this.$axios.post("/device/deleteDeviceByUuid", data_, config)
                 .then(res => {
                   console.log(res)
                   console.log(res.data)
@@ -416,7 +416,7 @@ let date = [];
               }
           }
 
-        this.$axios.post("http://localhost:18887/device/findDeviceByUsername", data_, config)
+        this.$axios.post("/device/findDeviceByUsername", data_, config)
                 .then(res => {
                   console.log(res)
                   console.log(res.data)

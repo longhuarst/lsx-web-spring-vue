@@ -107,7 +107,7 @@ export default {
 
           // console.log(data_.getAll())
 
-          this.$axios.post("http://localhost:18884/user/login", data_, config)
+          this.$axios.post("/oauth/user/login", data_, config)
                 .then(res => {
                   console.log(res)
                   console.log(res.data)
@@ -119,7 +119,8 @@ export default {
                       this.$message.success(res.data.message)
 
 
-                      localStorage.setItem("token",res.data);
+                      // localStorage.setItem("token",res.data);
+                      this.$store.commit("setToken", JSON.stringify(res.data.data));
 
                       console.log(this.$store.state.username);
                       // this.$common.setUsername(values.userName);

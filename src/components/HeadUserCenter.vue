@@ -4,10 +4,24 @@
     <a-row>
 
 
+        <template>
+            <div>
+                <!-- <span style="margin-right:24px"> -->
+                <!-- <a-badge :count="99"><a-avatar shape="square" icon="user"/></a-badge> -->
+                <a-badge :count="99"><a-avatar shape="square" src="http://localhost:18880/fastdfs/group1/M00/00/00/CtM3Cl5j5-SAJT9eAACJ3JtEyNk345.jpg">
+                    <button></button>
+                </a-avatar></a-badge>
+                <!-- </span> -->
+                <!-- <span>
+                <a-badge dot><a-avatar shape="square" icon="user"/></a-badge>
+                </span> -->
+            </div>
+        </template>
 
-        <a-button type="dashed">{{$store.state.username}}</a-button>
+
+        <!-- <a-button type="dashed">{{$store.state.username}}</a-button>
         
-        <a-button type="dashed" v-on:click="logout">退出登陆</a-button>
+        <a-button type="dashed" v-on:click="logout">退出登陆</a-button> -->
 
     </a-row>
     </div>
